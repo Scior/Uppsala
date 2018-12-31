@@ -53,8 +53,8 @@
 		6BFF5EEA21DA1EB700F4FBBB = {
 			isa = PBXGroup;
 			children = (
-				6BFF5EF621DA1EB700F4FBBB /* Uppsala */,
-				6BFF5F0121DA1EB800F4FBBB /* UppsalaTests */,
+				6BFF5EF621DA1EB700F4FBBB /* Sources */,
+				6BFF5F0121DA1EB800F4FBBB /* Tests */,
 				6BFF5EF521DA1EB700F4FBBB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,22 +68,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6BFF5EF621DA1EB700F4FBBB /* Uppsala */ = {
+		6BFF5EF621DA1EB700F4FBBB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */,
 				6BFF5EF821DA1EB700F4FBBB /* Info.plist */,
 			);
-			path = Uppsala;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		6BFF5F0121DA1EB800F4FBBB /* UppsalaTests */ = {
+		6BFF5F0121DA1EB800F4FBBB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				6BFF5F0221DA1EB800F4FBBB /* UppsalaTests.swift */,
 				6BFF5F0421DA1EB800F4FBBB /* Info.plist */,
 			);
-			path = UppsalaTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
