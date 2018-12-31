@@ -50,9 +50,7 @@ public class SemanticVersion : Comparable {
         let loopLimit = min(lhs.count, rhs.count)
         
         for count in 0..<loopLimit {
-            guard let leftNumber = lhs[count], let rightNumber = rhs[count] else {
-                fatalError("Uppsala: Index is out of range")
-            }
+            guard let leftNumber = lhs[count], let rightNumber = rhs[count] else { fatalError("Uppsala: Index is out of range") }
             
             if leftNumber == rightNumber {
                 continue
@@ -67,17 +65,14 @@ public class SemanticVersion : Comparable {
         let loopLimit = min(lhs.count, rhs.count)
         
         for count in 0..<loopLimit {
-            guard let leftNumber = lhs[count], let rightNumber = rhs[count] else {
-                fatalError("Uppsala: Index is out of range")
-            }
+            guard let leftNumber = lhs[count], let rightNumber = rhs[count] else { fatalError("Uppsala: Index is out of range") }
             
-            if leftNumber == rightNumber {
-                return true
-
+            if leftNumber != rightNumber {
+                return false
             }
         }
         
-        return false
+        return true
     }
     
 }
