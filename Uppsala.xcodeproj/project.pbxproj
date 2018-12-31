@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6BFF5EFE21DA1EB800F4FBBB /* Uppsala.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */; };
-		6BFF5F0321DA1EB800F4FBBB /* UppsalaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F0221DA1EB800F4FBBB /* UppsalaTests.swift */; };
 		6BFF5F0521DA1EB800F4FBBB /* Uppsala.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F0E21DA43BC00F4FBBB /* SemanticVersion.swift */; };
 		6BFF5F1121DA4D0900F4FBBB /* SemanticVersionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F1021DA4D0900F4FBBB /* SemanticVersionTests.swift */; };
@@ -29,7 +28,6 @@
 		6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Uppsala.h; sourceTree = "<group>"; };
 		6BFF5EF821DA1EB700F4FBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFF5EFD21DA1EB800F4FBBB /* UppsalaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UppsalaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BFF5F0221DA1EB800F4FBBB /* UppsalaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppsalaTests.swift; sourceTree = "<group>"; };
 		6BFF5F0421DA1EB800F4FBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BFF5F0E21DA43BC00F4FBBB /* SemanticVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticVersion.swift; sourceTree = "<group>"; };
 		6BFF5F1021DA4D0900F4FBBB /* SemanticVersionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticVersionTests.swift; sourceTree = "<group>"; };
@@ -75,9 +73,9 @@
 		6BFF5EF621DA1EB700F4FBBB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */,
+				6BFF5F1221DA5E4300F4FBBB /* Versioning */,
 				6BFF5EF821DA1EB700F4FBBB /* Info.plist */,
-				6BFF5F0E21DA43BC00F4FBBB /* SemanticVersion.swift */,
+				6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -85,11 +83,26 @@
 		6BFF5F0121DA1EB800F4FBBB /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6BFF5F0221DA1EB800F4FBBB /* UppsalaTests.swift */,
+				6BFF5F1321DA5E5500F4FBBB /* Versioning */,
 				6BFF5F0421DA1EB800F4FBBB /* Info.plist */,
-				6BFF5F1021DA4D0900F4FBBB /* SemanticVersionTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		6BFF5F1221DA5E4300F4FBBB /* Versioning */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5F0E21DA43BC00F4FBBB /* SemanticVersion.swift */,
+			);
+			path = Versioning;
+			sourceTree = "<group>";
+		};
+		6BFF5F1321DA5E5500F4FBBB /* Versioning */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5F1021DA4D0900F4FBBB /* SemanticVersionTests.swift */,
+			);
+			path = Versioning;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +223,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BFF5F1121DA4D0900F4FBBB /* SemanticVersionTests.swift in Sources */,
-				6BFF5F0321DA1EB800F4FBBB /* UppsalaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,14 +6,19 @@
 //  Copyright © 2018 Suita Fujino. All rights reserved.
 //
 
-public class SemanticVersion : Comparable {
+/**
+ A model class which describes a semantic version.
+ */
+public class SemanticVersion: Comparable {
     
     public typealias VersionDataType = UInt32
     
     // MARK: - Properties
     
+    /// The array of split number.
     public var splitVersionNumber: [VersionDataType] = []
     
+    /// The number of elements in `splitVersionNumber`.
     public var count: Int {
         return splitVersionNumber.count
     }
@@ -24,7 +29,7 @@ public class SemanticVersion : Comparable {
      Failable initializer with parsing string.
      
      - Parameters:
-       - str: A string to parse.
+       - str: The characters to parse.
      */
     init?(from str: String) {
         var result: [VersionDataType] = []
@@ -38,23 +43,25 @@ public class SemanticVersion : Comparable {
     }
     
     // MARK: - Methods
+
+}
+
+extension SemanticVersion {
     
-    subscript(index: Int) -> VersionDataType? {
+    // MARK: Operators
+    
+    public subscript(index: Int) -> VersionDataType? {
         guard (0..<splitVersionNumber.count).contains(index) else { return nil }
         return splitVersionNumber[index]
     }
-    
-    // MARK: - Operators
     
     public static func < (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
         let loopLimit = min(lhs.count, rhs.count)
         
         for count in 0..<loopLimit {
             guard let leftNumber = lhs[count], let rightNumber = rhs[count] else { fatalError("Uppsala: Index is out of range") }
+            if leftNumber == rightNumber { continue }
             
-            if leftNumber == rightNumber {
-                continue
-            }
             return leftNumber < rightNumber
         }
         
