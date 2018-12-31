@@ -1,0 +1,45 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# update_fastlane
+
+default_platform(:ios)
+
+options = {
+  proj: 'Uppsala.xcodeproj',
+  scheme: 'Uppsala',
+  derived_data: 'Build'
+}
+
+platform :ios do
+  desc "Test"
+  lane :test do
+    scan(
+      derived_data_path: options[:derived_data]
+    )
+  end
+
+  desc "CI test with coverage"
+  lane :coverage do
+    test
+
+    slather(
+      proj: options[:proj],
+      scheme: options[:scheme],
+      build_directory: options[:derived_data],
+      ignore: ['Tests/*'],
+      travis: true,
+      coveralls: true
+    )
+
+  end
+end
