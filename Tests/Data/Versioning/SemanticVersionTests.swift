@@ -29,6 +29,12 @@ class SemanticVersionTests: XCTestCase {
         XCTAssertEqual(SemanticVersion(from: version)?.count, 4)
     }
     
+    func testDescription() {
+        let version = SemanticVersion(from: "1.022.34.05")!
+        
+        XCTAssertEqual(version.description, "1.22.34.5")
+    }
+    
     func testComparisonOperator1() {
         let version1 = SemanticVersion(from: "1.22.34.5")!
         let version2 = SemanticVersion(from: "1.22.35.5")!

@@ -14,7 +14,7 @@ class EnvironmentSourceAppTests: XCTestCase {
     func testFetchShortVersion() {
         let environment = EnvironmentSourceApp()
         
-        XCTAssertNotNil(environment.fetchShortVersion())
+        XCTAssertNil(environment.fetchShortVersion())
     }
 
 }

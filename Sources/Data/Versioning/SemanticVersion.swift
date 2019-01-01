@@ -9,7 +9,7 @@
 /**
  A model class which describes a semantic version.
  */
-public class SemanticVersion: Comparable {
+public class SemanticVersion: Comparable, CustomStringConvertible {
     
     public typealias VersionDataType = UInt32
     
@@ -21,6 +21,11 @@ public class SemanticVersion: Comparable {
     /// The number of elements in `splitVersionNumber`.
     public var count: Int {
         return splitVersionNumber.count
+    }
+    
+    // (InheritDoc)
+    public var description: String {
+        return splitVersionNumber.map({String($0)}).joined(separator: ".")
     }
     
     // MARK: - Lifecycle

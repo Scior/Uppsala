@@ -16,8 +16,11 @@ fileprivate struct Constants {
 class EnvironmentTests: XCTestCase {
     
     class EnvironmentSourceMock: EnvironmentSource {
+        
+        public var mockVersion: String? = Constants.testVersionString
+        
         func fetchShortVersion() -> String? {
-            return Constants.testVersionString
+            return mockVersion
         }
     }
 
@@ -25,6 +28,14 @@ class EnvironmentTests: XCTestCase {
         let environment = Environment(source: EnvironmentSourceMock())
         
         XCTAssertEqual(environment.appShortVersion, SemanticVersion(from: Constants.testVersionString))
+    }
+    
+    func testInitializerWithNilShortVersion() {
+        let mockSource = EnvironmentSourceMock()
+        mockSource.mockVersion = nil
+        let environment = Environment(source: mockSource)
+        
+        XCTAssertNil(environment.appShortVersion)
     }
 
 }
