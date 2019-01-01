@@ -27,6 +27,7 @@ public final class SemanticVersionRangeParser {
      ```
      0.0<1.1.2 // acceptable
      <1.1.2 // accetable
+     1.1.2 // acceptable (and equivalent to 1.1.2<1.1.2.1)
      1.1.2< // NOT acceptable
      <=1.1.2 // NOT acceptable
      ```
@@ -37,12 +38,18 @@ public final class SemanticVersionRangeParser {
      - Returns: The combined `Result` of Range<SemanticVersion> and `ParseError`.
      */
     public class func parse(from str: String) -> Result {
-        guard let count = str.match(regex: "^[0-9.<]+[0-9]+$"), count > 0 else { return .error(.invalidFormat(str)) }
+        let pattern = "0" + str.replacingOccurrences(of: " ", with: "")
+        guard let count = pattern.match(regex: "^[0-9.<]+[0-9]+$"), count > 0 else { return .error(.invalidFormat(pattern)) }
         
-        var split = ("0" + str).split(separator: "<")
-        guard split.count == 2 else { return .error(.invalidFormat(str)) }
-        
-        // TODO: count == 1
+        var split = pattern.split(separator: "<")
+        switch split.count {
+        case 1:
+            split += [split[0] + ".1"]
+        case 2:
+            break
+        default:
+            return .error(.invalidFormat(str))
+        }
         
         let startString = String(split[0])
         guard let start = SemanticVersion(from: startString) else { return .error(.invalidVersionFormat(startString)) }

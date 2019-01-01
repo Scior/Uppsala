@@ -45,8 +45,37 @@ class SemanticVersionRangeParserTests: XCTestCase {
         XCTAssertFalse(range.contains(SemanticVersion(from: "2.0.1")!))
     }
     
+    func testParseWithSingleValue() {
+        let parseResult = SemanticVersionRangeParser.parse(from: "1.12")
+        guard let range = parseResult.ok() else {
+            XCTFail("\(parseResult.error()!)")
+            return
+        }
+        
+        XCTAssert(range.contains(SemanticVersion(from: "1.12")!))
+        XCTAssert(range.contains(SemanticVersion(from: "1.12.0")!))
+        XCTAssert(range.contains(SemanticVersion(from: "1.12.0.1")!))
+        XCTAssertFalse(range.contains(SemanticVersion(from: "1.12.1")!))
+        XCTAssertFalse(range.contains(SemanticVersion(from: "2")!))
+    }
+    
     func testParseWithInvalidFormat() {
         let parseResult = SemanticVersionRangeParser.parse(from: "+2.2")
+        guard let error = parseResult.error() else {
+            XCTFail("\(parseResult.ok()!)")
+            return
+        }
+        
+        switch error {
+        case .invalidFormat:
+            break
+        default:
+            XCTFail("Unexpected error returned")
+        }
+    }
+    
+    func testParseWithInvalidFormat2() {
+        let parseResult = SemanticVersionRangeParser.parse(from: "1.0<1.1<2.2")
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
             return
