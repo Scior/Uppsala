@@ -17,6 +17,7 @@
 		6BFF5F2021DB157E00F4FBBB /* EnvironmentSourceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F1F21DB157E00F4FBBB /* EnvironmentSourceApp.swift */; };
 		6BFF5F2321DB186100F4FBBB /* EnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F2221DB186100F4FBBB /* EnvironmentTests.swift */; };
 		6BFF5F2721DB1A4000F4FBBB /* EnvironmentSourceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F2621DB1A4000F4FBBB /* EnvironmentSourceAppTests.swift */; };
+		6BFF5F6C21DB1F3A00F4FBBB /* Uppsala.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F6B21DB1F3A00F4FBBB /* Uppsala.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		6BFF5F1F21DB157E00F4FBBB /* EnvironmentSourceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSourceApp.swift; sourceTree = "<group>"; };
 		6BFF5F2221DB186100F4FBBB /* EnvironmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentTests.swift; sourceTree = "<group>"; };
 		6BFF5F2621DB1A4000F4FBBB /* EnvironmentSourceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentSourceAppTests.swift; sourceTree = "<group>"; };
+		6BFF5F6B21DB1F3A00F4FBBB /* Uppsala.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uppsala.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F1421DA5FEF00F4FBBB /* Data */,
+				6BFF5F6A21DB1F0B00F4FBBB /* UppsalaCore */,
 				6BFF5EF821DA1EB700F4FBBB /* Info.plist */,
 				6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */,
 			);
@@ -153,6 +156,14 @@
 				6BFF5F2621DB1A4000F4FBBB /* EnvironmentSourceAppTests.swift */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		6BFF5F6A21DB1F0B00F4FBBB /* UppsalaCore */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5F6B21DB1F3A00F4FBBB /* Uppsala.swift */,
+			);
+			path = UppsalaCore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				6BFF5F1C21DA64C200F4FBBB /* Bundle+.swift in Sources */,
 				6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */,
 				6BFF5F2021DB157E00F4FBBB /* EnvironmentSourceApp.swift in Sources */,
+				6BFF5F6C21DB1F3A00F4FBBB /* Uppsala.swift in Sources */,
 				6BFF5F1A21DA62BB00F4FBBB /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -20,7 +20,7 @@ final class Environment {
      - Parameters:
        - source: The source from which the app infomation is fetched.
      */
-    init(source: EnvironmentSource = EnvironmentSourceApp()) {
+    init(source: EnvironmentSource) {
         if let shortVersion = source.fetchShortVersion() {
             appShortVersion = SemanticVersion(from: shortVersion)
         } else {
