@@ -6,6 +6,9 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
+/**
+ A source fetching version information from app bundle.
+ */
 class EnvironmentSourceApp: EnvironmentSource {
     func fetchShortVersion() -> String? {
         return Bundle.main.shortVersion

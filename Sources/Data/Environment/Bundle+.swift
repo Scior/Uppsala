@@ -7,6 +7,7 @@
 //
 
 extension Bundle {
+    /// The short version of app.
     var shortVersion: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
