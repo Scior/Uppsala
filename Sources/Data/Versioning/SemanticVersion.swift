@@ -38,6 +38,11 @@ public class SemanticVersion: Comparable, CustomStringConvertible {
      */
     init?(from str: String) {
         var result: [VersionDataType] = []
+        if str.isEmpty {
+            splitVersionNumber = [0]
+            return
+        }
+        guard let count = str.match(regex: "^(\\d+\\.)*\\d+$"), count > 0 else { return nil }
         
         for splitString in str.split(separator: ".") {
             guard let number = VersionDataType(splitString) else { return nil }
@@ -61,10 +66,11 @@ extension SemanticVersion {
     }
     
     public static func < (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
-        let loopLimit = min(lhs.count, rhs.count)
+        let loopLimit = max(lhs.count, rhs.count)
         
         for count in 0..<loopLimit {
-            guard let leftNumber = lhs[count], let rightNumber = rhs[count] else { fatalError("Uppsala: Index is out of range") }
+            let leftNumber = lhs[count] ?? 0
+            let rightNumber = rhs[count] ?? 0
             if leftNumber == rightNumber { continue }
             
             return leftNumber < rightNumber
@@ -74,10 +80,11 @@ extension SemanticVersion {
     }
     
     public static func == (lhs: SemanticVersion, rhs: SemanticVersion) -> Bool {
-        let loopLimit = min(lhs.count, rhs.count)
+        let loopLimit = max(lhs.count, rhs.count)
         
         for count in 0..<loopLimit {
-            guard let leftNumber = lhs[count], let rightNumber = rhs[count] else { fatalError("Uppsala: Index is out of range") }
+            let leftNumber = lhs[count] ?? 0
+            let rightNumber = rhs[count] ?? 0
             
             if leftNumber != rightNumber {
                 return false
