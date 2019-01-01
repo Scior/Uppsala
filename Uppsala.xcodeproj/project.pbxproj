@@ -94,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F1421DA5FEF00F4FBBB /* Data */,
+				6BFF5F7921DB493800F4FBBB /* Enums */,
 				6BFF5F7221DB387F00F4FBBB /* Presentation */,
 				6BFF5F6A21DB1F0B00F4FBBB /* UppsalaCore */,
 				6BFF5EF821DA1EB700F4FBBB /* Info.plist */,
@@ -205,6 +206,13 @@
 				6BFF5F7721DB438C00F4FBBB /* AlertControllerFactoryTests.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6BFF5F7921DB493800F4FBBB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

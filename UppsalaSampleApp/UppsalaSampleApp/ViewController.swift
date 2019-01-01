@@ -26,7 +26,7 @@ class ViewController: UIViewController {
             message: "The new version of this app is now available!"
         )
         factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: url)]
-        let alertController = factory.build(complition: { action in
+        let alertController = factory.build(complition: { (action, _) in
             print("Dismissed: \(action)")
         })
         
