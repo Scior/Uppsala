@@ -25,7 +25,7 @@ import UIKit
  */
 public class AlertControllerFactory {
     
-    public typealias completionHandler = (DefaultAction, UIAlertAction) -> Void
+    public typealias CompletionHandler = (DefaultAction, UIAlertAction) -> Void
     
     /**
      The default action for the update alert dialog.
@@ -73,7 +73,7 @@ public class AlertControllerFactory {
      
      - Returns: `UIAlertController` with the default actions and the completion handler.
      */
-    public func build(completion: (completionHandler)? = nil) -> UIAlertController {
+    public func build(completion: (CompletionHandler)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         for action in actions {
@@ -117,7 +117,7 @@ fileprivate extension UIAlertController {
        - completion: The handler which is called when the alert dialog dismisses.
        - handler: The handler which dedcribes the action corresponding with the default action.
      */
-    func addDefaultAction(title: String?, style: UIAlertAction.Style, defaultAction: AlertControllerFactory.DefaultAction, completion: AlertControllerFactory.completionHandler?, handler: (() -> Void)? = nil) {
+    func addDefaultAction(title: String?, style: UIAlertAction.Style, defaultAction: AlertControllerFactory.DefaultAction, completion: AlertControllerFactory.CompletionHandler?, handler: (() -> Void)? = nil) {
         let action = UIAlertAction(title: title, style: style) { action in
             handler?()
             completion?(defaultAction, action)
