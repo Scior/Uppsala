@@ -25,7 +25,7 @@ public class SemanticVersion: Comparable, CustomStringConvertible {
     
     // (InheritDoc)
     public var description: String {
-        return splitVersionNumber.map({String($0)}).joined(separator: ".")
+        return splitVersionNumber.map({ String($0) }).joined(separator: ".")
     }
     
     // MARK: - Lifecycle
