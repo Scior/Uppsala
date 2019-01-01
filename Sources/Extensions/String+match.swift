@@ -19,4 +19,20 @@ internal extension String {
         guard let regex = try? NSRegularExpression(pattern: regex) else { return nil }
         return regex.numberOfMatches(in: self, range: NSRange(location: 0, length: count))
     }
+    
+    /**
+     Returns whether the pattern matches or not.
+     
+     - Parameters:
+       - regex: The regex used for matching.
+     
+     - Returns: Whether the pattern matches or not.
+     */
+    func isMatching(regex: String) -> Bool {
+        if let count = match(regex: regex), count > 0 {
+            return true
+        } else {
+            return false
+        }
+    }
 }

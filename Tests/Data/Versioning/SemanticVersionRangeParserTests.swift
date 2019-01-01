@@ -12,7 +12,7 @@ import XCTest
 class SemanticVersionRangeParserTests: XCTestCase {
 
     func testParseWithBothDefinedRange() {
-        let parseResult = SemanticVersionRangeParser.parse(from: "0.1.1<1.2")
+        let parseResult = SemanticVersionRangeParser.parse(from: "0.1.1 < 1.2")
         guard let range = parseResult.ok() else {
             XCTFail("\(parseResult.error()!)")
             return

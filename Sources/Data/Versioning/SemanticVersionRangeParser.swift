@@ -13,8 +13,11 @@ public final class SemanticVersionRangeParser {
     
     public typealias Result = UppsalaResult<Range<SemanticVersion>, ParseError>
     
+    /// Error occurred on parsing.
     public enum ParseError: Error {
+        /// Invalid input format. (e.g. Invalid characters.)
         case invalidFormat(String)
+        /// Invalid version format. (e.g. 0.1..2)
         case invalidVersionFormat(String)
     }
     
@@ -39,7 +42,7 @@ public final class SemanticVersionRangeParser {
      */
     public class func parse(from str: String) -> Result {
         let pattern = "0" + str.replacingOccurrences(of: " ", with: "")
-        guard let count = pattern.match(regex: "^[0-9.<]+[0-9]+$"), count > 0 else { return .error(.invalidFormat(pattern)) }
+        guard pattern.isMatching(regex: "^[0-9.<]+[0-9]+$") else { return .error(.invalidFormat(pattern)) }
         
         var split = pattern.split(separator: "<")
         switch split.count {
@@ -51,11 +54,11 @@ public final class SemanticVersionRangeParser {
             return .error(.invalidFormat(str))
         }
         
-        let startString = String(split[0])
-        guard let start = SemanticVersion(from: startString) else { return .error(.invalidVersionFormat(startString)) }
-        let endString = String(split[1])
-        guard let end = SemanticVersion(from: endString) else { return .error(.invalidVersionFormat(endString)) }
+        let range = split.compactMap({ SemanticVersion(from: String($0)) })
+        if range.count != 2 {
+            return .error(.invalidVersionFormat(str))
+        }
         
-        return Result.ok(start..<end)
+        return Result.ok(range[0]..<range[1])
     }
 }
