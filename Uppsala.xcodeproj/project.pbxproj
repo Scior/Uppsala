@@ -20,7 +20,7 @@
 		6BFF5F6C21DB1F3A00F4FBBB /* Uppsala.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F6B21DB1F3A00F4FBBB /* Uppsala.swift */; };
 		6BFF5F6F21DB28DE00F4FBBB /* UppsalaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F6E21DB28DE00F4FBBB /* UppsalaTests.swift */; };
 		6BFF5F7521DB38F600F4FBBB /* AlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F7421DB38F600F4FBBB /* AlertControllerFactory.swift */; };
-		6BFF5F7821DB438C00F4FBBB /* AlertControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F7721DB438C00F4FBBB /* AlertControllerFactoryTests.swift */; };
+		6BFF5F8121DB50F000F4FBBB /* AlertControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F8021DB50F000F4FBBB /* AlertControllerFactoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		6BFF5F6B21DB1F3A00F4FBBB /* Uppsala.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uppsala.swift; sourceTree = "<group>"; };
 		6BFF5F6E21DB28DE00F4FBBB /* UppsalaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppsalaTests.swift; sourceTree = "<group>"; };
 		6BFF5F7421DB38F600F4FBBB /* AlertControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactory.swift; sourceTree = "<group>"; };
-		6BFF5F7721DB438C00F4FBBB /* AlertControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactoryTests.swift; sourceTree = "<group>"; };
+		6BFF5F8021DB50F000F4FBBB /* AlertControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerFactoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F1521DA600400F4FBBB /* Data */,
+				6BFF5F7C21DB50BA00F4FBBB /* Presentation */,
 				6BFF5F6D21DB28B800F4FBBB /* UppsalaCore */,
 				6BFF5F0421DA1EB800F4FBBB /* Info.plist */,
 			);
@@ -142,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F2121DB182C00F4FBBB /* Environment */,
-				6BFF5F7621DB436900F4FBBB /* Presentation */,
 				6BFF5F1321DA5E5500F4FBBB /* Versioning */,
 			);
 			path = Data;
@@ -200,19 +200,27 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		6BFF5F7621DB436900F4FBBB /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				6BFF5F7721DB438C00F4FBBB /* AlertControllerFactoryTests.swift */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
 		6BFF5F7921DB493800F4FBBB /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		6BFF5F7C21DB50BA00F4FBBB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5F7D21DB50C500F4FBBB /* Presenter */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6BFF5F7D21DB50C500F4FBBB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5F8021DB50F000F4FBBB /* AlertControllerFactoryTests.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BFF5F7821DB438C00F4FBBB /* AlertControllerFactoryTests.swift in Sources */,
+				6BFF5F8121DB50F000F4FBBB /* AlertControllerFactoryTests.swift in Sources */,
 				6BFF5F2721DB1A4000F4FBBB /* EnvironmentSourceAppTests.swift in Sources */,
 				6BFF5F1121DA4D0900F4FBBB /* SemanticVersionTests.swift in Sources */,
 				6BFF5F6F21DB28DE00F4FBBB /* UppsalaTests.swift in Sources */,
