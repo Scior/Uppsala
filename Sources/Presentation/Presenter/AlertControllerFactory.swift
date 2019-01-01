@@ -9,11 +9,23 @@
 import UIKit
 
 /**
- A factory of `UIAlertController` with the default actions and the complition handler.
+ A factory of `UIAlertController` with the default actions and the completion handler.
+ 
+ - Sample code:
+ ```
+ let factory = AlertControllerFactory(
+    title: "Update Notification",
+    message: "The new version of this app is now available!"
+ )
+ factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: url)]
+ let alertController = factory.build()
+ 
+ present(alertController, animated: true, completion: nil)
+ ```
  */
 public class AlertControllerFactory {
     
-    public typealias ComplitionHandler = (DefaultAction, UIAlertAction) -> Void
+    public typealias completionHandler = (DefaultAction, UIAlertAction) -> Void
     
     /**
      The default action for the update alert dialog.
@@ -54,28 +66,28 @@ public class AlertControllerFactory {
     // MARK: - Methods
     
     /**
-     Constructs `UIAlertController` with the complition handler.
+     Constructs `UIAlertController` with the completion handler.
      
      - Parameters:
-       - complition: The complition handler executed after the action ended.
+       - completion: The completion handler executed after the action ended.
      
-     - Returns: `UIAlertController` with the default actions and the complition handler.
+     - Returns: `UIAlertController` with the default actions and the completion handler.
      */
-    public func build(complition: (ComplitionHandler)? = nil) -> UIAlertController {
+    public func build(completion: (completionHandler)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         for action in actions {
             switch action {
             case .openAppStore(let title, let url):
-                alertController.addDefaultAction(title: title, style: .default, defaultAction: action, complition: complition) {
+                alertController.addDefaultAction(title: title, style: .default, defaultAction: action, completion: completion) {
                     UIApplication.shared.open(url: url)
                 }
             case .openLink(let title, let url):
-                alertController.addDefaultAction(title: title, style: .default, defaultAction: action, complition: complition) {
+                alertController.addDefaultAction(title: title, style: .default, defaultAction: action, completion: completion) {
                     UIApplication.shared.open(url: url)
                 }
             case .close(let title):
-                alertController.addDefaultAction(title: title, style: .cancel, defaultAction: action, complition: complition)
+                alertController.addDefaultAction(title: title, style: .cancel, defaultAction: action, completion: completion)
             }
         }
         
@@ -102,13 +114,13 @@ fileprivate extension UIAlertController {
        - title: The title of the alert dialog.
        - style: `UIAlertAction.Style`
        - defaultAction: The type of the action.
-       - complition: The handler which is called when the alert dialog dismisses.
+       - completion: The handler which is called when the alert dialog dismisses.
        - handler: The handler which dedcribes the action corresponding with the default action.
      */
-    func addDefaultAction(title: String?, style: UIAlertAction.Style, defaultAction: AlertControllerFactory.DefaultAction, complition: AlertControllerFactory.ComplitionHandler?, handler: (() -> Void)? = nil) {
+    func addDefaultAction(title: String?, style: UIAlertAction.Style, defaultAction: AlertControllerFactory.DefaultAction, completion: AlertControllerFactory.completionHandler?, handler: (() -> Void)? = nil) {
         let action = UIAlertAction(title: title, style: style) { action in
             handler?()
-            complition?(defaultAction, action)
+            completion?(defaultAction, action)
         }
         self.addAction(action)
     }
