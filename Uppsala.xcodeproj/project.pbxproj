@@ -26,6 +26,12 @@
 		6BFF5F9721DB80A500F4FBBB /* SemanticVersionRangeParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F9621DB80A500F4FBBB /* SemanticVersionRangeParserTests.swift */; };
 		6BFF5F9A21DB887400F4FBBB /* String+match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F9921DB887400F4FBBB /* String+match.swift */; };
 		6BFF5F9F21DB8CE100F4FBBB /* UppsalaResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F9E21DB8CE100F4FBBB /* UppsalaResultTests.swift */; };
+		6BFF5FA221DC751000F4FBBB /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5FA121DC751000F4FBBB /* UpdateDetail.swift */; };
+		6BFF5FA421DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5FA321DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift */; };
+		6BFF5FA921DC7CA100F4FBBB /* UpdateDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5FA821DC7CA100F4FBBB /* UpdateDetailTests.swift */; };
+		6BFF5FAB21DC80B200F4FBBB /* UpdateDetailJSONFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5FAA21DC80B200F4FBBB /* UpdateDetailJSONFetcherTests.swift */; };
+		6BFF5FAF21DCC31900F4FBBB /* update_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF5FAD21DC812D00F4FBBB /* update_detail.json */; };
+		6BFF5FB021DCC46700F4FBBB /* update_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF5FAD21DC812D00F4FBBB /* update_detail.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,11 @@
 		6BFF5F9621DB80A500F4FBBB /* SemanticVersionRangeParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemanticVersionRangeParserTests.swift; sourceTree = "<group>"; };
 		6BFF5F9921DB887400F4FBBB /* String+match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+match.swift"; sourceTree = "<group>"; };
 		6BFF5F9E21DB8CE100F4FBBB /* UppsalaResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppsalaResultTests.swift; sourceTree = "<group>"; };
+		6BFF5FA121DC751000F4FBBB /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
+		6BFF5FA321DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailJSONFetcher.swift; sourceTree = "<group>"; };
+		6BFF5FA821DC7CA100F4FBBB /* UpdateDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailTests.swift; sourceTree = "<group>"; };
+		6BFF5FAA21DC80B200F4FBBB /* UpdateDetailJSONFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailJSONFetcherTests.swift; sourceTree = "<group>"; };
+		6BFF5FAD21DC812D00F4FBBB /* update_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = update_detail.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +131,7 @@
 				6BFF5F1521DA600400F4FBBB /* Data */,
 				6BFF5F9B21DB8CA300F4FBBB /* Enums */,
 				6BFF5F7C21DB50BA00F4FBBB /* Presentation */,
+				6BFF5FAC21DC80ED00F4FBBB /* Resources */,
 				6BFF5F6D21DB28B800F4FBBB /* UppsalaCore */,
 				6BFF5F0421DA1EB800F4FBBB /* Info.plist */,
 			);
@@ -148,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F1621DA601000F4FBBB /* Environment */,
+				6BFF5FA021DC74FA00F4FBBB /* Update */,
 				6BFF5F1221DA5E4300F4FBBB /* Versioning */,
 			);
 			path = Data;
@@ -157,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F2121DB182C00F4FBBB /* Environment */,
+				6BFF5FA521DC7C5400F4FBBB /* Update */,
 				6BFF5F1321DA5E5500F4FBBB /* Versioning */,
 			);
 			path = Data;
@@ -254,6 +268,32 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		6BFF5FA021DC74FA00F4FBBB /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5FA121DC751000F4FBBB /* UpdateDetail.swift */,
+				6BFF5FA321DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		6BFF5FA521DC7C5400F4FBBB /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5FA821DC7CA100F4FBBB /* UpdateDetailTests.swift */,
+				6BFF5FAA21DC80B200F4FBBB /* UpdateDetailJSONFetcherTests.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		6BFF5FAC21DC80ED00F4FBBB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6BFF5FAD21DC812D00F4FBBB /* update_detail.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -347,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFF5FB021DCC46700F4FBBB /* update_detail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BFF5FAF21DCC31900F4FBBB /* update_detail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +431,8 @@
 				6BFF5F7521DB38F600F4FBBB /* AlertControllerFactory.swift in Sources */,
 				6BFF5F9321DB658700F4FBBB /* SemanticVersionRangeParser.swift in Sources */,
 				6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */,
+				6BFF5FA421DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift in Sources */,
+				6BFF5FA221DC751000F4FBBB /* UpdateDetail.swift in Sources */,
 				6BFF5F9A21DB887400F4FBBB /* String+match.swift in Sources */,
 				6BFF5F2021DB157E00F4FBBB /* EnvironmentSourceApp.swift in Sources */,
 				6BFF5F9521DB6A5F00F4FBBB /* UppsalaResult.swift in Sources */,
@@ -402,8 +446,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BFF5F8121DB50F000F4FBBB /* AlertControllerFactoryTests.swift in Sources */,
+				6BFF5FAB21DC80B200F4FBBB /* UpdateDetailJSONFetcherTests.swift in Sources */,
 				6BFF5F9F21DB8CE100F4FBBB /* UppsalaResultTests.swift in Sources */,
 				6BFF5F2721DB1A4000F4FBBB /* EnvironmentSourceAppTests.swift in Sources */,
+				6BFF5FA921DC7CA100F4FBBB /* UpdateDetailTests.swift in Sources */,
 				6BFF5F1121DA4D0900F4FBBB /* SemanticVersionTests.swift in Sources */,
 				6BFF5F6F21DB28DE00F4FBBB /* UppsalaTests.swift in Sources */,
 				6BFF5F2321DB186100F4FBBB /* EnvironmentTests.swift in Sources */,
