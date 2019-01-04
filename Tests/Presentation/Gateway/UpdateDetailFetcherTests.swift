@@ -1,5 +1,5 @@
 //
-//  UpdateDetailJSONFetcherTests.swift
+//  UpdateDetailFetcherTests.swift
 //  UppsalaTests
 //
 //  Created by Suita Fujino on 2019/01/02.
@@ -9,13 +9,13 @@
 import XCTest
 @testable import Uppsala
 
-class UpdateDetailJSONFetcherTests: XCTestCase {
+class UpdateDetailFetcherTests: XCTestCase {
     
-    let testURL = Bundle(for: UpdateDetailJSONFetcherTests.self).url(forResource: "update_detail", withExtension: "json")!
+    let testURL = Bundle(for: UpdateDetailFetcherTests.self).url(forResource: "update_detail", withExtension: "json")!
 
     func testFetchShouldSucceed() {
         let expectation = XCTestExpectation(description: "Fetch succeeded")
-        UpdateDetailJSONFetcher().fetch(from: testURL) { (result) in
+        UpdateDetailFetcher().fetch(from: testURL) { (result) in
             if let _ = result.ok() {
                 expectation.fulfill()
             } else {
