@@ -15,6 +15,7 @@ public class UpdateDetailFetcher {
 
     /**
      Fetchs JSON from the given URL and parses into `UpdateDetail`.
+     The error will be a fetching error or a parsing error.
      
      - Parameters:
        - url: The JSON `URL` to fetch.

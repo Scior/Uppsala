@@ -10,13 +10,18 @@ internal extension URLSession {
     
     typealias Result = UppsalaResult<Data, FetchingError>
     
+    /**
+     Represents the reason of fetching error.
+     */
     enum FetchingError: Error {
+        /// Caused by bad network.
         case network(Error, URLResponse?)
+        /// Caught unexpectedly broken data without an explicit error.
         case invalidData(URLResponse?)
     }
     
     /**
-     Fetch the raw data from URL.
+     Fetchs the raw data from URL.
      
      - Parameters:
        - url: The `URL` to fetch.
