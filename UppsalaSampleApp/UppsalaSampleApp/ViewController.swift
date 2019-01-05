@@ -11,7 +11,7 @@ import Uppsala
 
 class ViewController: UIViewController {
     
-    let testURL = Bundle.main.url(forResource: "update_detail", withExtension: "json")!
+    let testURL = Bundle.main.url(forResource: "update_detail", withExtension: "json")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        guard let testURL = testURL else { return }
         guard let detail = Uppsala.shared.fetchAwait(from: testURL).ok() else { return }
         
         present(AlertControllerFactory.from(updateDetail: detail), animated: true, completion: nil)

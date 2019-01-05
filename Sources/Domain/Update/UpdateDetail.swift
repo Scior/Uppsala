@@ -6,6 +6,9 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
+/**
+ An entity class which describes the update information.
+ */
 public final class UpdateDetail {
     
     public enum ConversionError: Error {

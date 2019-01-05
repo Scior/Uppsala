@@ -64,7 +64,7 @@ public final class AlertControllerFactory {
      Constructs `UIAlertController` with the completion handler.
      
      - Parameters:
-       - completion: The completion handler executed after the action ended.
+       - completion: The completion handler that will be executed after the action ended.
      
      - Returns: `UIAlertController` with the default actions and the completion handler.
      */
@@ -89,11 +89,21 @@ public final class AlertControllerFactory {
         return alertController
     }
     
+    /**
+     Converts the entity class into the `UIAlertController`.
+     - TODO: Rename.
+     
+     - Parameters:
+       - updateDetail: The entity class.
+     
+     - Returns: `UIAlertController` with the default actions and the completion handler.
+     */
     public class func from(updateDetail: UpdateDetail) -> UIAlertController {
         let factory = AlertControllerFactory(texts: DialogTexts(
             title: updateDetail.title,
             message: updateDetail.message
         ))
+        // TODO: 
         factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: updateDetail.appStoreUrl)]
         
         return factory.build()

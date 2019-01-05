@@ -6,6 +6,9 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
+/**
+ An entity class which is converted from the JSON file.
+ */
 struct UpdateDetailJSONEntity: Decodable {
     let appStoreUrl: String
     let message: String? = nil
