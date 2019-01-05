@@ -11,7 +11,7 @@
  */
 public class UpdateDetailFetcher {
     
-    public typealias Result = UppsalaResult<UpdateDetail, Error>
+    public typealias Result = UppsalaResult<UpdateDetailJSONEntity, Error>
 
     /**
      Fetchs JSON from the given URL and parses into `UpdateDetail`.
@@ -27,7 +27,7 @@ public class UpdateDetailFetcher {
             switch result {
             case .ok(let data):
                 do {
-                    let updateDetail = try UpdateDetail.from(data: data)
+                    let updateDetail = try UpdateDetailJSONEntity.from(data: data)
                     completion(.ok(updateDetail))
                 } catch let error {
                     completion(.error(error))

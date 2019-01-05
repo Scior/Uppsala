@@ -1,5 +1,5 @@
 //
-//  UpdateDetailTests.swift
+//  UpdateDetailJSONEntityTests.swift
 //  UppsalaTests
 //
 //  Created by Suita Fujino on 2019/01/02.
@@ -13,7 +13,7 @@ fileprivate struct Constants {
     public static let testVersion = "1.1.12"
 }
 
-class UpdateDetailTests: XCTestCase {
+class UpdateDetailJSONEntityTests: XCTestCase {
 
     func testFromShouldSucceed() {
         let data = """
@@ -22,7 +22,7 @@ class UpdateDetailTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        guard let updateDetail = try? UpdateDetail.from(data: data) else {
+        guard let updateDetail = try? UpdateDetailJSONEntity.from(data: data) else {
             XCTFail("Decode failed")
             return
         }
@@ -37,7 +37,7 @@ class UpdateDetailTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        guard let _ = try? UpdateDetail.from(data: data) else {
+        guard let _ = try? UpdateDetailJSONEntity.from(data: data) else {
             return
         }
         
