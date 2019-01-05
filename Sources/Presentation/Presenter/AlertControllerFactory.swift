@@ -23,7 +23,7 @@ import UIKit
  present(alertController, animated: true, completion: nil)
  ```
  */
-public class AlertControllerFactory {
+public final class AlertControllerFactory {
     
     public typealias CompletionHandler = (DefaultAction, UIAlertAction) -> Void
     

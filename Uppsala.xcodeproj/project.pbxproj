@@ -185,10 +185,10 @@
 		6BFF5F1621DA601000F4FBBB /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				6BFF5F1B21DA64C200F4FBBB /* Bundle+.swift */,
 				6BFF5F1921DA62BB00F4FBBB /* Environment.swift */,
 				6BFF5F1D21DB148500F4FBBB /* EnvironmentSource.swift */,
 				6BFF5F1F21DB157E00F4FBBB /* EnvironmentSourceApp.swift */,
-				6BFF5F1B21DA64C200F4FBBB /* Bundle+.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";

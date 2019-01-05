@@ -6,7 +6,7 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
-public class UpdateDetail {
+public final class UpdateDetail {
     
     public enum ConversionError: Error {
         case failedToConvert(Any)

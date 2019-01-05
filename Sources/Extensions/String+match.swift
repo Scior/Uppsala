@@ -6,7 +6,7 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
-internal extension String {
+extension String {
     /**
      Counts the number of matches with the given regex.
      

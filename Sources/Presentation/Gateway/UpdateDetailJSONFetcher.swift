@@ -9,7 +9,7 @@
 /**
  A class to fetch the remote JSON file of update information.
  */
-public class UpdateDetailFetcher {
+public final class UpdateDetailFetcher {
     
     public typealias Result = UppsalaResult<UpdateDetail, Error>
 

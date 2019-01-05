@@ -6,7 +6,7 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
-internal struct UpdateDetailJSONEntity: Decodable {
+struct UpdateDetailJSONEntity: Decodable {
     let version: String
 }
 
