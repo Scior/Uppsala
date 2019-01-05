@@ -6,7 +6,7 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
-public struct UpdateDetailJSONEntity: Decodable {
+internal struct UpdateDetailJSONEntity: Decodable {
     let version: String
 }
 
@@ -20,7 +20,7 @@ extension UpdateDetailJSONEntity {
      - Throws: `Error` from `JSONDecoder`.
      - Returns: `UpdateDetail`.
      */
-    public static func from(data: Data) throws -> UpdateDetailJSONEntity {
+    static func from(data: Data) throws -> UpdateDetailJSONEntity {
         do {
             return try JSONDecoder().decode(self, from: data)
         } catch let error {

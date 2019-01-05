@@ -10,7 +10,7 @@ import XCTest
 @testable import Uppsala
 
 fileprivate struct Constants {
-    public static let testVersion = "1.1.12"
+    static let testVersion = "1.1.12"
 }
 
 class UpdateDetailJSONEntityTests: XCTestCase {

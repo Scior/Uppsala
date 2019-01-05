@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B8ABEE621E093F700972E26 /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEE521E093F700972E26 /* UpdateDetail.swift */; };
+		6B8ABEE821E094F000972E26 /* UpdateDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEE721E094F000972E26 /* UpdateDetailTests.swift */; };
 		6BFF5EFE21DA1EB800F4FBBB /* Uppsala.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */; };
 		6BFF5F0521DA1EB800F4FBBB /* Uppsala.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F0E21DA43BC00F4FBBB /* SemanticVersion.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B8ABEE521E093F700972E26 /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
+		6B8ABEE721E094F000972E26 /* UpdateDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailTests.swift; sourceTree = "<group>"; };
 		6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Uppsala.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Uppsala.h; sourceTree = "<group>"; };
 		6BFF5EF821DA1EB700F4FBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 		6BFF5FA021DC74FA00F4FBBB /* Update */ = {
 			isa = PBXGroup;
 			children = (
+				6B8ABEE521E093F700972E26 /* UpdateDetail.swift */,
 				6BFF5FA121DC751000F4FBBB /* UpdateDetailJSONEntity.swift */,
 			);
 			path = Update;
@@ -285,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5FA821DC7CA100F4FBBB /* UpdateDetailJSONEntityTests.swift */,
+				6B8ABEE721E094F000972E26 /* UpdateDetailTests.swift */,
 			);
 			path = Update;
 			sourceTree = "<group>";
@@ -452,6 +458,7 @@
 				6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */,
 				6BFF5FA421DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift in Sources */,
 				6BFF5FA221DC751000F4FBBB /* UpdateDetailJSONEntity.swift in Sources */,
+				6B8ABEE621E093F700972E26 /* UpdateDetail.swift in Sources */,
 				6BFF5FB221DF852B00F4FBBB /* URLSession+fetch.swift in Sources */,
 				6BFF5F9A21DB887400F4FBBB /* String+match.swift in Sources */,
 				6BFF5F2021DB157E00F4FBBB /* EnvironmentSourceApp.swift in Sources */,
@@ -474,6 +481,7 @@
 				6BFF5F6F21DB28DE00F4FBBB /* UppsalaTests.swift in Sources */,
 				6BFF5F2321DB186100F4FBBB /* EnvironmentTests.swift in Sources */,
 				6BFF5F9721DB80A500F4FBBB /* SemanticVersionRangeParserTests.swift in Sources */,
+				6B8ABEE821E094F000972E26 /* UpdateDetailTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

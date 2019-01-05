@@ -40,7 +40,7 @@ public final class SemanticVersionRangeParser {
      
      - Returns: The combined `Result` of Range<SemanticVersion> and `ParseError`.
      */
-    public class func parse(from str: String) -> Result {
+    public func parse(from str: String) -> Result {
         let pattern = "0" + str.replacingOccurrences(of: " ", with: "")
         guard pattern.isMatching(regex: "^[0-9.<]+[0-9]+$") else { return .error(.invalidFormat(pattern)) }
         
