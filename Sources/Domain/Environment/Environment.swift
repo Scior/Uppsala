@@ -10,6 +10,7 @@ final class Environment {
     
     // MARK: - Properties
     
+    /// The short version fetched from app.
     let appShortVersion: SemanticVersion?
     
     // MARK: - Lifecycle

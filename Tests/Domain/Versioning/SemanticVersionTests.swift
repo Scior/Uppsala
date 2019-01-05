@@ -23,6 +23,13 @@ class SemanticVersionTests: XCTestCase {
         XCTAssertNil(SemanticVersion(from: version))
     }
     
+    func testInitializerWithEmptyString() {
+        let version1 = ""
+        let version2 = "0"
+        
+        XCTAssertEqual(SemanticVersion(from: version1), SemanticVersion(from: version2))
+    }
+    
     func testCount() {
         let version = "1.22.34.5"
         
