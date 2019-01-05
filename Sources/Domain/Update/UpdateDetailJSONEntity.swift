@@ -8,6 +8,8 @@
 
 struct UpdateDetailJSONEntity: Decodable {
     let appStoreUrl: String
+    let message: String? = nil
+    let title: String? = nil
     let version: String
 }
 

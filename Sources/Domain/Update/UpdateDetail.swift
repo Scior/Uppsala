@@ -15,6 +15,12 @@ public final class UpdateDetail {
     /// The URL for App Store.
     public let appStoreUrl: URL
     
+    /// The message of the alert dialog.
+    public let message: String?
+    
+    /// The title of the alert dialog.
+    public let title: String?
+    
     /// The range of the app version to update.
     public let version: Range<SemanticVersion>
     
@@ -33,6 +39,8 @@ public final class UpdateDetail {
         guard let version = parser.parse(from: entity.version).ok() else { throw ConversionError.failedToConvert(entity.version) }
         
         self.appStoreUrl = appStoreUrl
+        self.message = entity.message
+        self.title = entity.title
         self.version = version
     }
     

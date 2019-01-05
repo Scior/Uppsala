@@ -22,7 +22,7 @@ fileprivate struct Constants {
 class AlertControllerFactoryTests: XCTestCase {
 
     func testBuildWithAllDefaultActionsShouldHaveCorrectTitles() {
-        let factory = AlertControllerFactory(title: Constants.testAlertControllerTitle, message: Constants.testAlertControllerTitle)
+        let factory = AlertControllerFactory(texts: DialogTexts(title: Constants.testAlertControllerTitle, message: Constants.testAlertControllerTitle))
         factory.actions = [
             .openAppStore(title: Constants.testAppStoreButtonTitle, url: URL(string: Constants.testAppStoreButtonURL)!),
             .openLink(title: Constants.testLinkButtonTitle, url: URL(string: Constants.testLinkButtonURL)!),
