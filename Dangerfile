@@ -4,6 +4,7 @@ github.dismiss_out_of_range_messages
 
 # PR rules
 warn('Put some description for your work') if github.pr_body.length == 0 && git.lines_of_code > 10
+warn('Too large pull request') if github.pr_body.length >= 500
 
 # File protection
 git.modified_files.grep(/^[A-Z]{1}.*file$/) { |file|
@@ -18,3 +19,4 @@ end
 # Swiftlint
 swiftlint.config_file = '.swiftlint.yml'
 swiftlint.lint_files inline_mode: true
+
