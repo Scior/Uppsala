@@ -37,5 +37,20 @@ class AlertControllerFactoryTests: XCTestCase {
         XCTAssert(actionTitles.contains(Constants.testLinkButtonTitle))
         XCTAssert(actionTitles.contains(Constants.testCloseButtonTitle))
     }
+    
+    func testFromShouldHaveCorrectTitles() {
+        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreButtonURL, version: "1.1.12")
+        guard let updateDetail = try? UpdateDetail(from: entity) else {
+            XCTFail("Unexpected nil")
+            return
+        }
+        let controller = AlertControllerFactory.from(updateDetail: updateDetail)
+        
+        XCTAssertEqual(controller.actions.count, 2)
+        
+        let actionTitles = controller.actions.compactMap({$0.title})
+        XCTAssert(actionTitles.contains("App Store"))
+        XCTAssert(actionTitles.contains("Close"))
+    }
 
 }

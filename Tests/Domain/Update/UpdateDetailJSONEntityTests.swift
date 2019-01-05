@@ -38,11 +38,9 @@ class UpdateDetailJSONEntityTests: XCTestCase {
         }
         """.data(using: .utf8)!
         
-        guard let _ = try? UpdateDetailJSONEntity.from(data: data) else {
-            return
-        }
+       
+        XCTAssertThrowsError(try UpdateDetailJSONEntity.from(data: data))
         
-        XCTFail("Decode succeeded")
     }
 
 }
