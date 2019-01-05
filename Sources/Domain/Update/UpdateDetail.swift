@@ -12,6 +12,9 @@ public final class UpdateDetail {
         case failedToConvert(Any)
     }
     
+    /// The URL for App Store.
+    public let appStoreUrl: URL
+    
     /// The range of the app version to update.
     public let version: Range<SemanticVersion>
     
@@ -26,8 +29,10 @@ public final class UpdateDetail {
      - throws: `ConversionError`
      */
     init(from entity: UpdateDetailJSONEntity, parser: SemanticVersionRangeParser = SemanticVersionRangeParser()) throws {
+        guard let appStoreUrl = URL(string: entity.appStoreUrl) else { throw ConversionError.failedToConvert(entity.appStoreUrl) }
         guard let version = parser.parse(from: entity.version).ok() else { throw ConversionError.failedToConvert(entity.version) }
         
+        self.appStoreUrl = appStoreUrl
         self.version = version
     }
     

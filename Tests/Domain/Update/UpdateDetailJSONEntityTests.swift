@@ -18,7 +18,8 @@ class UpdateDetailJSONEntityTests: XCTestCase {
     func testFromShouldSucceed() {
         let data = """
         {
-            "version": "1.1.12"
+            "version": "1.1.12",
+            "app_store_url": "https://www.apple.com"
         }
         """.data(using: .utf8)!
         
@@ -33,7 +34,7 @@ class UpdateDetailJSONEntityTests: XCTestCase {
     func testFromShouldFail() {
         let data = """
         {
-            "versaaion": "1.1.12"
+            "version": "1.1.12"
         }
         """.data(using: .utf8)!
         

@@ -23,7 +23,7 @@ public enum UppsalaResult<T, E> {
      - `true` OK
      - `false` Error
      */
-    func isOk() -> Bool {
+    public func isOk() -> Bool {
         switch self {
         case .ok:
             return true
@@ -39,7 +39,7 @@ public enum UppsalaResult<T, E> {
      - `true` Error
      - `false` OK
      */
-    func isError() -> Bool {
+    public func isError() -> Bool {
         return !isOk()
     }
     
@@ -49,7 +49,7 @@ public enum UppsalaResult<T, E> {
      - returns:
      Returns the result which has type `T` if itself is `.ok`. Otherwise, returns `nil`.
      */
-    func ok() -> T? {
+    public func ok() -> T? {
         switch self {
         case .ok(let result):
             return result
@@ -64,7 +64,7 @@ public enum UppsalaResult<T, E> {
      - returns:
      Returns the error which has type `E` if itself is `.error`. Otherwise, returns `nil`.
      */
-    func error() -> E? {
+    public func error() -> E? {
         switch self {
         case .ok:
             return nil
@@ -83,7 +83,7 @@ public enum UppsalaResult<T, E> {
      - `.ok` with type `Result<U, E>`, if its original state was `.ok`.
      - `.error` with type `Result<U, E>`, if its original state was `.error`.
      */
-    func map<U>(_ transform: ((T) -> U)) -> UppsalaResult<U, E> {
+    public func map<U>(_ transform: ((T) -> U)) -> UppsalaResult<U, E> {
         switch self {
         case .ok(let result):
             return .ok(transform(result)) as UppsalaResult<U, E>

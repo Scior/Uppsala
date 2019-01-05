@@ -7,6 +7,7 @@
 //
 
 struct UpdateDetailJSONEntity: Decodable {
+    let appStoreUrl: String
     let version: String
 }
 
@@ -22,7 +23,9 @@ extension UpdateDetailJSONEntity {
      */
     static func from(data: Data) throws -> UpdateDetailJSONEntity {
         do {
-            return try JSONDecoder().decode(self, from: data)
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            return try decoder.decode(self, from: data)
         } catch let error {
             throw error
         }

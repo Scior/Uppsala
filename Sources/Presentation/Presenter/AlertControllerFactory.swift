@@ -94,6 +94,17 @@ public final class AlertControllerFactory {
         return alertController
     }
     
+    public class func from(updateDetail: UpdateDetail) -> UIAlertController {
+        let factory = AlertControllerFactory(
+            // TODO: Default implement
+            title: "Update Notification",
+            message: "The new version of this app is now available!"
+        )
+        factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: updateDetail.appStoreUrl)]
+        
+        return factory.build()
+    }
+    
 }
 
 fileprivate extension UIApplication {

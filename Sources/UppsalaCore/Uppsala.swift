@@ -16,7 +16,7 @@ public final class Uppsala {
     /// Shared static instance.
     public static let shared = Uppsala(source: EnvironmentSourceApp())
     
-    let environment: Environment
+    private let environment: Environment
     
     // MARK: - Computed properties
     

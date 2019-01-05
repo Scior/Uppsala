@@ -12,9 +12,13 @@
 public final class UpdateDetailFetcher {
     
     public typealias Result = UppsalaResult<UpdateDetail, Error>
+    
+    // MARK: - Constants
+    
+    public static let timeoutForFetching = 5.0
 
     /**
-     Fetchs JSON from the given URL and parses into `UpdateDetail`.
+     Fetches JSON from the given URL and parses into `UpdateDetail`.
      The error will be a fetching error or a parsing error.
      
      - Parameters:
@@ -39,4 +43,38 @@ public final class UpdateDetailFetcher {
         }
     }
     
+    /**
+     Fetches JSON **synchronously** from the given URL and parses into `UpdateDetail`.
+     
+     - Parameters:
+       - url: The JSON `URL` to fetch.
+       - session: The `URLSession` to use. The default id `URLSession.shared`.
+       - timeout: The `Double` value for timeout.
+     
+     - Returns: `Result<UpdateDetail, Error>?`.
+     */
+    public func fetchAwait(from url: URL, session: URLSession = URLSession.shared, timeout: Double = UpdateDetailFetcher.timeoutForFetching) -> Result {
+        let semaphore = DispatchSemaphore(value: 0)
+        var fetchingResult: Result?
+        
+        fetch(from: url) { (result) in
+            semaphore.signal()
+            fetchingResult = result
+        }
+        
+        switch semaphore.wait(timeout: .now() + timeout) {
+        case .success:
+            return fetchingResult ?? .error(FetcherError.internalError)
+        case .timedOut:
+            return .error(FetcherError.timeout)
+        }
+    }
+    
+}
+
+extension UpdateDetailFetcher {
+    public enum FetcherError: Error {
+        case internalError
+        case timeout
+    }
 }

@@ -10,27 +10,21 @@ import UIKit
 import Uppsala
 
 class ViewController: UIViewController {
+    
+    let testURL = Bundle.main.url(forResource: "update_detail", withExtension: "json")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print(Uppsala.shared.appShortVersion)
+        print(Uppsala.shared.appShortVersion?.description)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        guard let url = URL(string: "https://www.google.com/") else { return }
-        let factory = AlertControllerFactory(
-            title: "Update Notification",
-            message: "The new version of this app is now available!"
-        )
-        factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: url)]
-        let alertController = factory.build(completion: { (action, _) in
-            print("Dismissed: \(action)")
-        })
+        guard let detail = Uppsala.shared.fetchAwait(from: testURL).ok() else { return }
         
-        present(alertController, animated: true, completion: nil)
+        present(AlertControllerFactory.from(updateDetail: detail), animated: true, completion: nil)
     }
 
 }
