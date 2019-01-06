@@ -11,8 +11,8 @@
  */
 struct UpdateDetailJSONEntity: Decodable {
     let appStoreUrl: String
-    let message: String? = nil
-    let title: String? = nil
+    let message: String?
+    let title: String?
     let version: String
 }
 

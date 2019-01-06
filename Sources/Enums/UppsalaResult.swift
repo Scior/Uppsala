@@ -20,8 +20,8 @@ public enum UppsalaResult<T, E> {
      Returns whether the result is OK.
      
      - returns:
-     - `true` OK
-     - `false` Error
+       - `true` OK
+       - `false` Error
      */
     public func isOk() -> Bool {
         switch self {
@@ -36,8 +36,8 @@ public enum UppsalaResult<T, E> {
      Returns whether the result has some error.
      
      - returns:
-     - `true` Error
-     - `false` OK
+       - `true` Error
+       - `false` OK
      */
     public func isError() -> Bool {
         return !isOk()
@@ -46,8 +46,7 @@ public enum UppsalaResult<T, E> {
     /**
      Returns the result which is wrapped by `Optional`.
      
-     - returns:
-     Returns the result which has type `T` if itself is `.ok`. Otherwise, returns `nil`.
+     - returns: Returns the result which has type `T` if itself is `.ok`. Otherwise, returns `nil`.
      */
     public func ok() -> T? {
         switch self {
@@ -61,8 +60,7 @@ public enum UppsalaResult<T, E> {
     /**
      Returns the error which is wrapped by `Optional`.
      
-     - returns:
-     Returns the error which has type `E` if itself is `.error`. Otherwise, returns `nil`.
+     - returns: Returns the error which has type `E` if itself is `.error`. Otherwise, returns `nil`.
      */
     public func error() -> E? {
         switch self {
@@ -77,11 +75,11 @@ public enum UppsalaResult<T, E> {
      Applies the function to convert the result type from `T` to `U`.
      
      - Parameters:
-     - transform: A mapper function which maps `T` to `U`.
+       - transform: A mapper function which maps `T` to `U`.
      
      - returns:
-     - `.ok` with type `Result<U, E>`, if its original state was `.ok`.
-     - `.error` with type `Result<U, E>`, if its original state was `.error`.
+       - `.ok` with type `Result<U, E>`, if its original state was `.ok`.
+       - `.error` with type `Result<U, E>`, if its original state was `.error`.
      */
     public func map<U>(_ transform: ((T) -> U)) -> UppsalaResult<U, E> {
         switch self {

@@ -39,7 +39,7 @@ class AlertControllerFactoryTests: XCTestCase {
     }
     
     func testFromShouldHaveCorrectTitles() {
-        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreButtonURL, version: "1.1.12")
+        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreButtonURL,  message: nil, title: nil, version: "1.1.12")
         guard let updateDetail = try? UpdateDetail(from: entity) else {
             XCTFail("Unexpected nil")
             return

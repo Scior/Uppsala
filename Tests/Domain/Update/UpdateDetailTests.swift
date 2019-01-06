@@ -18,7 +18,7 @@ fileprivate struct Constants {
 class UpdateDetailTests: XCTestCase {
 
     func testIntializerShouldSucceed() {
-        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreUrl, version: Constants.testVersion)
+        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreUrl, message: nil, title: nil, version: Constants.testVersion)
         let updateDetail = try? UpdateDetail(from: entity)
         
         let expectedRange = SemanticVersion(from: "0")!..<SemanticVersion(from: "1.1.12")!
@@ -26,7 +26,7 @@ class UpdateDetailTests: XCTestCase {
     }
     
     func testIntializerShouldReturnNil() {
-        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreUrl, version: Constants.testInvalidVersion)
+        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreUrl,  message: nil, title: nil, version: Constants.testInvalidVersion)
         let updateDetail = try? UpdateDetail(from: entity)
         
         XCTAssertNil(updateDetail)
