@@ -9,11 +9,16 @@
 /**
  A model class which describes a semantic version.
  */
-public class SemanticVersion: Comparable, CustomStringConvertible {
+public class SemanticVersion: Comparable, CustomStringConvertible, RangeParsable {
     
     public typealias VersionDataType = UInt32
     
     // MARK: - Properties
+    
+    // (InheritDoc)
+    public static let prefixForPreprocess: String = "0"
+    // (InheritDoc)
+    public static let suffixForPreprocess: String = ".1"
     
     /// The array of split number.
     public var splitVersionNumber: [VersionDataType] = []
@@ -36,7 +41,7 @@ public class SemanticVersion: Comparable, CustomStringConvertible {
      - Parameters:
        - str: The characters to parse.
      */
-    init?(from str: String) {
+    required public init?(from str: String) {
         var result: [VersionDataType] = []
         if str.isEmpty {
             splitVersionNumber = [0]
@@ -53,6 +58,10 @@ public class SemanticVersion: Comparable, CustomStringConvertible {
     }
     
     // MARK: - Methods
+    
+    public class func from(_ str: String) -> SemanticVersion? {
+        return SemanticVersion(from: str)
+    }
 
 }
 

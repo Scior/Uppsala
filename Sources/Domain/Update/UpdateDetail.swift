@@ -37,9 +37,9 @@ public final class UpdateDetail {
      
      - throws: `ConversionError`
      */
-    init(from entity: UpdateDetailJSONEntity, parser: SemanticVersionRangeParser = SemanticVersionRangeParser()) throws {
+    init(from entity: UpdateDetailJSONEntity, parser: RangeParser = RangeParser()) throws {
         guard let appStoreUrl = URL(string: entity.appStoreUrl) else { throw ConversionError.failedToConvert(entity.appStoreUrl) }
-        guard let version = parser.parse(from: entity.version).ok() else { throw ConversionError.failedToConvert(entity.version) }
+        guard let version = parser.parse(from: entity.version, to: SemanticVersion.self).ok() else { throw ConversionError.failedToConvert(entity.version) }
         
         self.appStoreUrl = appStoreUrl
         self.message = entity.message

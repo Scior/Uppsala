@@ -1,5 +1,5 @@
 //
-//  SemanticVersionRangeParserTests.swift
+//  RangeParserTests.swift
 //  UppsalaTests
 //
 //  Created by Suita Fujino on 2019/01/01.
@@ -9,12 +9,12 @@
 import XCTest
 @testable import Uppsala
 
-class SemanticVersionRangeParserTests: XCTestCase {
+class RangeParserTests: XCTestCase {
     
-    let parser = SemanticVersionRangeParser()
+    let parser = RangeParser()
 
     func testParseWithBothDefinedRange() {
-        let parseResult = parser.parse(from: "0.1.1 < 1.2")
+        let parseResult = parser.parse(from: "0.1.1 < 1.2", to: SemanticVersion.self)
         guard let range = parseResult.ok() else {
             XCTFail("\(parseResult.error()!)")
             return
@@ -34,7 +34,7 @@ class SemanticVersionRangeParserTests: XCTestCase {
     }
     
     func testParseWithRightDefinedRange() {
-        let parseResult = parser.parse(from: "<2.0")
+        let parseResult = parser.parse(from: "<2.0", to: SemanticVersion.self)
         guard let range = parseResult.ok() else {
             XCTFail("\(parseResult.error()!)")
             return
@@ -48,7 +48,7 @@ class SemanticVersionRangeParserTests: XCTestCase {
     }
     
     func testParseWithSingleValue() {
-        let parseResult = parser.parse(from: "1.12")
+        let parseResult = parser.parse(from: "1.12", to: SemanticVersion.self)
         guard let range = parseResult.ok() else {
             XCTFail("\(parseResult.error()!)")
             return
@@ -62,7 +62,7 @@ class SemanticVersionRangeParserTests: XCTestCase {
     }
     
     func testParseWithInvalidFormat() {
-        let parseResult = parser.parse(from: "+2.2")
+        let parseResult = parser.parse(from: "+2.2", to: SemanticVersion.self)
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
             return
@@ -77,7 +77,7 @@ class SemanticVersionRangeParserTests: XCTestCase {
     }
     
     func testParseWithInvalidFormat2() {
-        let parseResult = parser.parse(from: "1.0<1.1<2.2")
+        let parseResult = parser.parse(from: "1.0<1.1<2.2", to: SemanticVersion.self)
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
             return
@@ -92,7 +92,7 @@ class SemanticVersionRangeParserTests: XCTestCase {
     }
     
     func testParseWithInvalidVersionFormat() {
-        let parseResult = parser.parse(from: "1.1...<2.2")
+        let parseResult = parser.parse(from: "1.1...<2.2", to: SemanticVersion.self)
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
             return
