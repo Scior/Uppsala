@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B8ABEE621E093F700972E26 /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEE521E093F700972E26 /* UpdateDetail.swift */; };
 		6B8ABEE821E094F000972E26 /* UpdateDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEE721E094F000972E26 /* UpdateDetailTests.swift */; };
+		6B8ABEEC21E0C32000972E26 /* Uppsala+fetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEEB21E0C32000972E26 /* Uppsala+fetch.swift */; };
+		6B8ABEF121E0D3FF00972E26 /* DialogTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEF021E0D3FF00972E26 /* DialogTexts.swift */; };
 		6BFF5EFE21DA1EB800F4FBBB /* Uppsala.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */; };
 		6BFF5F0521DA1EB800F4FBBB /* Uppsala.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F0E21DA43BC00F4FBBB /* SemanticVersion.swift */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		6B8ABEE521E093F700972E26 /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
 		6B8ABEE721E094F000972E26 /* UpdateDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetailTests.swift; sourceTree = "<group>"; };
+		6B8ABEEB21E0C32000972E26 /* Uppsala+fetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Uppsala+fetch.swift"; sourceTree = "<group>"; };
+		6B8ABEF021E0D3FF00972E26 /* DialogTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DialogTexts.swift; path = Sources/Domain/Update/DialogTexts.swift; sourceTree = SOURCE_ROOT; };
 		6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Uppsala.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFF5EF721DA1EB700F4FBBB /* Uppsala.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Uppsala.h; sourceTree = "<group>"; };
 		6BFF5EF821DA1EB700F4FBBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,10 +189,10 @@
 		6BFF5F1621DA601000F4FBBB /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				6BFF5F1B21DA64C200F4FBBB /* Bundle+.swift */,
 				6BFF5F1921DA62BB00F4FBBB /* Environment.swift */,
 				6BFF5F1D21DB148500F4FBBB /* EnvironmentSource.swift */,
 				6BFF5F1F21DB157E00F4FBBB /* EnvironmentSourceApp.swift */,
-				6BFF5F1B21DA64C200F4FBBB /* Bundle+.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -206,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				6BFF5F6B21DB1F3A00F4FBBB /* Uppsala.swift */,
+				6B8ABEEB21E0C32000972E26 /* Uppsala+fetch.swift */,
 			);
 			path = UppsalaCore;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 		6BFF5FA021DC74FA00F4FBBB /* Update */ = {
 			isa = PBXGroup;
 			children = (
+				6B8ABEF021E0D3FF00972E26 /* DialogTexts.swift */,
 				6B8ABEE521E093F700972E26 /* UpdateDetail.swift */,
 				6BFF5FA121DC751000F4FBBB /* UpdateDetailJSONEntity.swift */,
 			);
@@ -455,12 +461,14 @@
 				6BFF5F1C21DA64C200F4FBBB /* Bundle+.swift in Sources */,
 				6BFF5F7521DB38F600F4FBBB /* AlertControllerFactory.swift in Sources */,
 				6BFF5F9321DB658700F4FBBB /* SemanticVersionRangeParser.swift in Sources */,
+				6B8ABEF121E0D3FF00972E26 /* DialogTexts.swift in Sources */,
 				6BFF5F0F21DA43BC00F4FBBB /* SemanticVersion.swift in Sources */,
 				6BFF5FA421DC76A400F4FBBB /* UpdateDetailJSONFetcher.swift in Sources */,
 				6BFF5FA221DC751000F4FBBB /* UpdateDetailJSONEntity.swift in Sources */,
 				6B8ABEE621E093F700972E26 /* UpdateDetail.swift in Sources */,
 				6BFF5FB221DF852B00F4FBBB /* URLSession+fetch.swift in Sources */,
 				6BFF5F9A21DB887400F4FBBB /* String+match.swift in Sources */,
+				6B8ABEEC21E0C32000972E26 /* Uppsala+fetch.swift in Sources */,
 				6BFF5F2021DB157E00F4FBBB /* EnvironmentSourceApp.swift in Sources */,
 				6BFF5F9521DB6A5F00F4FBBB /* UppsalaResult.swift in Sources */,
 				6BFF5F6C21DB1F3A00F4FBBB /* Uppsala.swift in Sources */,

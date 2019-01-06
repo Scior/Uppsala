@@ -6,7 +6,7 @@
 //  Copyright © 2019 Suita Fujino. All rights reserved.
 //
 
-internal extension URLSession {
+extension URLSession {
     
     typealias Result = UppsalaResult<Data, FetchingError>
     

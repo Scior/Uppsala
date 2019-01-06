@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B8ABEEF21E0D04F00972E26 /* update_detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B8ABEEE21E0D04F00972E26 /* update_detail.json */; };
 		6BFF5F3521DB1E6C00F4FBBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F3421DB1E6C00F4FBBB /* AppDelegate.swift */; };
 		6BFF5F3721DB1E6C00F4FBBB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFF5F3621DB1E6C00F4FBBB /* ViewController.swift */; };
 		6BFF5F3A21DB1E6C00F4FBBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BFF5F3821DB1E6C00F4FBBB /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B8ABEEE21E0D04F00972E26 /* update_detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = update_detail.json; sourceTree = "<group>"; };
 		6BFF5F3121DB1E6C00F4FBBB /* UppsalaSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UppsalaSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BFF5F3421DB1E6C00F4FBBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BFF5F3621DB1E6C00F4FBBB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B8ABEED21E0D02B00972E26 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B8ABEEE21E0D04F00972E26 /* update_detail.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		6BFF5F2821DB1E6C00F4FBBB = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		6BFF5F3321DB1E6C00F4FBBB /* UppsalaSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				6B8ABEED21E0D02B00972E26 /* Resources */,
 				6BFF5F3421DB1E6C00F4FBBB /* AppDelegate.swift */,
 				6BFF5F3621DB1E6C00F4FBBB /* ViewController.swift */,
 				6BFF5F3821DB1E6C00F4FBBB /* Main.storyboard */,
@@ -180,6 +191,7 @@
 				6BFF5F3F21DB1E7400F4FBBB /* LaunchScreen.storyboard in Resources */,
 				6BFF5F3C21DB1E7400F4FBBB /* Assets.xcassets in Resources */,
 				6BFF5F3A21DB1E6C00F4FBBB /* Main.storyboard in Resources */,
+				6B8ABEEF21E0D04F00972E26 /* update_detail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@ import UIKit
  present(alertController, animated: true, completion: nil)
  ```
  */
-public class AlertControllerFactory {
+public final class AlertControllerFactory {
     
     public typealias CompletionHandler = (DefaultAction, UIAlertAction) -> Void
     
@@ -41,10 +41,7 @@ public class AlertControllerFactory {
     
     // MARK: - Properties
     
-    /// The title of the alert dialog.
-    let title: String?
-    /// The message of the alert dialog.
-    let message: String?
+    public let texts: DialogTexts
     
     /// The `Set` of the default action.
     public var actions: Set<DefaultAction> = []
@@ -55,12 +52,10 @@ public class AlertControllerFactory {
      Initializer.
      
      - Parameters:
-       - title: The title of the alert dialog.
-       - message: The message of the alert dialog.
+       - texts: Texts for the alert dialog.
      */
-    public init(title: String?, message: String?) {
-        self.title = title
-        self.message = message
+    public init(texts: DialogTexts) {
+        self.texts = texts
     }
     
     // MARK: - Methods
@@ -69,12 +64,12 @@ public class AlertControllerFactory {
      Constructs `UIAlertController` with the completion handler.
      
      - Parameters:
-       - completion: The completion handler executed after the action ended.
+       - completion: The completion handler that will be executed after the action ended.
      
      - Returns: `UIAlertController` with the default actions and the completion handler.
      */
     public func build(completion: (CompletionHandler)? = nil) -> UIAlertController {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: texts.title, message: texts.message, preferredStyle: .alert)
         
         for action in actions {
             switch action {
@@ -92,6 +87,26 @@ public class AlertControllerFactory {
         }
         
         return alertController
+    }
+    
+    /**
+     Converts the entity class into the `UIAlertController`.
+     - TODO: Rename.
+     
+     - Parameters:
+       - updateDetail: The entity class.
+     
+     - Returns: `UIAlertController` with the default actions and the completion handler.
+     */
+    public class func from(updateDetail: UpdateDetail) -> UIAlertController {
+        let factory = AlertControllerFactory(texts: DialogTexts(
+            title: updateDetail.title,
+            message: updateDetail.message
+        ))
+        // TODO: 
+        factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: updateDetail.appStoreUrl)]
+        
+        return factory.build()
     }
     
 }

@@ -22,7 +22,7 @@ fileprivate struct Constants {
 class AlertControllerFactoryTests: XCTestCase {
 
     func testBuildWithAllDefaultActionsShouldHaveCorrectTitles() {
-        let factory = AlertControllerFactory(title: Constants.testAlertControllerTitle, message: Constants.testAlertControllerTitle)
+        let factory = AlertControllerFactory(texts: DialogTexts(title: Constants.testAlertControllerTitle, message: Constants.testAlertControllerTitle))
         factory.actions = [
             .openAppStore(title: Constants.testAppStoreButtonTitle, url: URL(string: Constants.testAppStoreButtonURL)!),
             .openLink(title: Constants.testLinkButtonTitle, url: URL(string: Constants.testLinkButtonURL)!),
@@ -36,6 +36,21 @@ class AlertControllerFactoryTests: XCTestCase {
         XCTAssert(actionTitles.contains(Constants.testAppStoreButtonTitle))
         XCTAssert(actionTitles.contains(Constants.testLinkButtonTitle))
         XCTAssert(actionTitles.contains(Constants.testCloseButtonTitle))
+    }
+    
+    func testFromShouldHaveCorrectTitles() {
+        let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreButtonURL,  message: nil, title: nil, version: "1.1.12")
+        guard let updateDetail = try? UpdateDetail(from: entity) else {
+            XCTFail("Unexpected nil")
+            return
+        }
+        let controller = AlertControllerFactory.from(updateDetail: updateDetail)
+        
+        XCTAssertEqual(controller.actions.count, 2)
+        
+        let actionTitles = controller.actions.compactMap({$0.title})
+        XCTAssert(actionTitles.contains("App Store"))
+        XCTAssert(actionTitles.contains("Close"))
     }
 
 }

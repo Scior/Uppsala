@@ -14,7 +14,7 @@ class UpdateDetailFetcherTests: XCTestCase {
     let testURL = Bundle(for: UpdateDetailFetcherTests.self).url(forResource: "update_detail", withExtension: "json")!
 
     func testFetchShouldSucceed() {
-        let expectation = XCTestExpectation(description: "Fetch succeeded")
+        let expectation = XCTestExpectation(description: "fetch() succeeded")
         UpdateDetailFetcher().fetch(from: testURL) { (result) in
             if let _ = result.ok() {
                 expectation.fulfill()
@@ -24,6 +24,10 @@ class UpdateDetailFetcherTests: XCTestCase {
         }
         
         wait(for: [expectation], timeout: 1.0)
+    }
+    
+    func testFetchAwaitShouldSucceed() {
+        XCTAssert(UpdateDetailFetcher().fetchAwait(from: testURL).isOk())
     }
 
 }

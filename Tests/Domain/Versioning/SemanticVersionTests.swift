@@ -71,16 +71,37 @@ class SemanticVersionTests: XCTestCase {
         XCTAssert(version1 > version2)
     }
     
-    func testEqualOperatorReturnsTrue() {
+    func testEqualOperatorReturnsTrue1() {
         let version1 = SemanticVersion(from: "1.22.35.5")!
         let version2 = SemanticVersion(from: "1.22.35.5")!
         
         XCTAssertEqual(version1, version2)
     }
     
-    func testEqualOperatorReturnsFalse() {
+    func testEqualOperatorReturnsTrue2() {
+        let version1 = SemanticVersion(from: "1.22.35.0")!
+        let version2 = SemanticVersion(from: "1.22.35")!
+        
+        XCTAssertEqual(version1, version2)
+    }
+    
+    func testEqualOperatorReturnsTrue3() {
+        let version1 = SemanticVersion(from: "1.0.1")!
+        let version2 = SemanticVersion(from: "1.0.1.0")!
+        
+        XCTAssertEqual(version1, version2)
+    }
+    
+    func testEqualOperatorReturnsFalse1() {
         let version1 = SemanticVersion(from: "1.22.35.5")!
         let version2 = SemanticVersion(from: "1.22.35.4")!
+        
+        XCTAssertNotEqual(version1, version2)
+    }
+    
+    func testEqualOperatorReturnsFalse2() {
+        let version1 = SemanticVersion(from: "1.22.0.1")!
+        let version2 = SemanticVersion(from: "1.22.0")!
         
         XCTAssertNotEqual(version1, version2)
     }
