@@ -27,7 +27,8 @@ class UpdateDetailFetcherTests: XCTestCase {
     }
     
     func testFetchAwaitShouldSucceed() {
-        XCTAssert(UpdateDetailFetcher().fetchAwait(from: testURL).isOk())
+        let result = UpdateDetailFetcher().fetchAwait(from: testURL)
+        XCTAssert(result.isOk())
     }
 
 }

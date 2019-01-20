@@ -25,7 +25,7 @@ public final class UpdateDetail {
     public let title: String?
     
     /// The range of the app version to update.
-    public let version: Range<SemanticVersion>
+    public let version: UppsalaRange<SemanticVersion>
     
     // MARK: - Lifecycle
     
@@ -37,9 +37,9 @@ public final class UpdateDetail {
      
      - throws: `ConversionError`
      */
-    init(from entity: UpdateDetailJSONEntity, parser: SemanticVersionRangeParser = SemanticVersionRangeParser()) throws {
+    init(from entity: UpdateDetailJSONEntity, parser: RangeParser = RangeParser()) throws {
         guard let appStoreUrl = URL(string: entity.appStoreUrl) else { throw ConversionError.failedToConvert(entity.appStoreUrl) }
-        guard let version = parser.parse(from: entity.version).ok() else { throw ConversionError.failedToConvert(entity.version) }
+        guard let version = parser.parse(from: entity.version, to: SemanticVersion.self).ok() else { throw ConversionError.failedToConvert(entity.version) }
         
         self.appStoreUrl = appStoreUrl
         self.message = entity.message
