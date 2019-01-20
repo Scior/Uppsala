@@ -22,11 +22,7 @@ final class Environment {
        - source: The source from which the app infomation is fetched.
      */
     init(source: EnvironmentSource) {
-        if let shortVersion = source.fetchShortVersion() {
-            appShortVersion = SemanticVersion(from: shortVersion)
-        } else {
-            appShortVersion = nil
-        }
+        appShortVersion = source.fetchShortVersion().flatMap({ SemanticVersion(from: $0) })
     }
     
     // MARK: - Methods
