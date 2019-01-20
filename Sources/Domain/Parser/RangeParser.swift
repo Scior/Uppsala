@@ -15,7 +15,7 @@ final class RangeParser {
     public enum ParseError: Error {
         /// Invalid range format. (e.g. 0.1<)
         case invalidRangeFormat(String)
-        /// Invalid value format. (e.g. 0.1..2)
+        /// Invalid value format. (e.g. 0.1..2<1.2)
         case invalidValueFormat(String)
     }
     
@@ -26,11 +26,13 @@ final class RangeParser {
      
      Here the example with `SemanticVersion`
      ```
-     0.0<1.1.2 // acceptable
+     0.1<1.1.2 // acceptable
+     0.1<=1.1.2 // acceptable
+     <=1.1.2 // acceptable
      <1.1.2 // accetable
-     1.1.2 // acceptable (and equivalent to 1.1.2<1.1.2.1)
+     =1.1.2 // accetable
+     1.1.2 // acceptable (and equivalent to =1.1.2)
      1.1.2< // NOT acceptable
-     <=1.1.2 // NOT acceptable
      ```
      
      - Parameters:

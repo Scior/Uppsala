@@ -19,12 +19,4 @@ protocol RangeParsableFactory {
     static func from(_ str: String) -> ImplType?
 }
 
-protocol RangeParsable: Comparable, RangeParsableFactory where ImplType == Self {
-    
-    /// The prefix for parse preprocessing.
-    static var prefixForPreprocess: String { get }
-    
-    /// The suffix for parse preprocessing.
-    static var suffixForPreprocess: String { get }
-    
-}
+protocol RangeParsable: Comparable, RangeParsableFactory where ImplType == Self {}

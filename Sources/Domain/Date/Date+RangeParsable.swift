@@ -12,10 +12,6 @@
 extension Date: RangeParsable {
     
     // (InheritDoc)
-    static let prefixForPreprocess: String = ""
-    // (InheritDoc)
-    static let suffixForPreprocess: String = ""
-    // (InheritDoc)
     static func from(_ str: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"

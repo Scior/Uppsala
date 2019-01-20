@@ -15,11 +15,6 @@ public class SemanticVersion: Comparable, CustomStringConvertible, RangeParsable
     
     // MARK: - Properties
     
-    // (InheritDoc)
-    static let prefixForPreprocess: String = "0"
-    // (InheritDoc)
-    static let suffixForPreprocess: String = ".1"
-    
     /// The array of split number.
     public var splitVersionNumber: [VersionDataType] = []
     
