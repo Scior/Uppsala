@@ -25,7 +25,7 @@ public final class UpdateDetail {
     public let title: String?
     
     /// The range of the app version to update.
-    public let version: Range<SemanticVersion>
+    public let version: UppsalaRange<SemanticVersion>
     
     // MARK: - Lifecycle
     

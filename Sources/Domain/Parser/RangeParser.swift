@@ -13,10 +13,10 @@ final class RangeParser {
     
     /// Error occurred on parsing.
     public enum ParseError: Error {
-        /// Invalid input format. (e.g. Invalid characters.)
-        case invalidFormat(String)
-        /// Invalid version format. (e.g. 0.1..2)
-        case invalidVersionFormat(String)
+        /// Invalid range format. (e.g. 0.1<)
+        case invalidRangeFormat(String)
+        /// Invalid value format. (e.g. 0.1..2)
+        case invalidValueFormat(String)
     }
     
     // MARK: - Methods
@@ -24,7 +24,7 @@ final class RangeParser {
     /**
      Parses from the given pattern to the semi-open range of `T: RangeParsable`.
      
-     NOTE: The pattern which confirms to `^[0-9.<]+[0-9]+$` is acceptable.
+     Here the example with `SemanticVersion`
      ```
      0.0<1.1.2 // acceptable
      <1.1.2 // accetable
@@ -38,25 +38,33 @@ final class RangeParser {
      
      - Returns: The combined `Result` of Range<T> and `ParseError`.
      */
-    func parse<T: RangeParsable>(from str: String, to: T.Type) -> UppsalaResult<Range<T>, ParseError> {
-        let pattern = T.prefixForPreprocess + str.replacingOccurrences(of: " ", with: "")
-        guard pattern.isMatching(regex: "^[0-9.<]+[0-9]+$") else { return .error(.invalidFormat(pattern)) }
+    func parse<T: RangeParsable>(from str: String, to: T.Type) -> UppsalaResult<UppsalaRange<T>, ParseError> {
+        let pattern = str.remove(" ")
+        guard pattern.isMatching(regex: "^[^<=]*[<]?[=]?[^<=]+$") else { return .error(.invalidRangeFormat(pattern)) }
         
-        var split = pattern.split(separator: "<")
-        switch split.count {
-        case 1:
-            split += [split[0] + ".1"]
-        case 2:
-            break
+        let split = pattern.remove("=").split(separator: "<")
+        
+        switch (split.count, pattern.contains("<"), pattern.contains("=")) {
+        case (1, true, true):
+            guard let rhs = T.from(String(split[0])) else { return .error(.invalidValueFormat(str)) }
+            return .ok(UppsalaRange(lhs: nil, rhs: rhs, isContainingRightSide: true))
+        case (1, true, false):
+            guard let rhs = T.from(String(split[0])) else { return .error(.invalidValueFormat(str)) }
+            return .ok(UppsalaRange(lhs: nil, rhs: rhs, isContainingRightSide: false))
+        case (1, false, _):
+            guard let value = T.from(String(split[0])) else { return .error(.invalidValueFormat(str)) }
+            return .ok(UppsalaRange(lhs: value, rhs: value, isContainingRightSide: true))
+        case (2, _, _):
+            guard let lhs = T.from(String(split[0])), let rhs = T.from(String(split[1])) else { return .error(.invalidValueFormat(str)) }
+            return .ok(UppsalaRange(lhs: lhs, rhs: rhs, isContainingRightSide: pattern.contains("=")))
         default:
-            return .error(.invalidFormat(str))
+            return .error(.invalidRangeFormat(str))
         }
-        
-        let range = split.compactMap({ T.from(String($0)) })
-        if range.count != 2 {
-            return .error(.invalidVersionFormat(str))
-        }
-        
-        return UppsalaResult.ok(range[0]..<range[1])
+    }
+}
+
+fileprivate extension String {
+    func remove(_ str: String) -> String {
+        return self.replacingOccurrences(of: str, with: "")
     }
 }

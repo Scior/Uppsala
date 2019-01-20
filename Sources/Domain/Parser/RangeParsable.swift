@@ -14,7 +14,7 @@ protocol RangeParsableFactory {
      Failable intializer from `String`.
      
      - Parameters:
-     - str: The characters to parse.
+       - str: The characters to parse.
      */
     static func from(_ str: String) -> ImplType?
 }

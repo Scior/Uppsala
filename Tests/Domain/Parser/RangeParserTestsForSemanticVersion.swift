@@ -1,5 +1,5 @@
 //
-//  RangeParserTests.swift
+//  RangeParserTestsForSemanticVersion.swift
 //  UppsalaTests
 //
 //  Created by Suita Fujino on 2019/01/01.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Uppsala
 
-class RangeParserTests: XCTestCase {
+class RangeParserTestsForSemanticVersion: XCTestCase {
     
     let parser = RangeParser()
 
@@ -48,7 +48,7 @@ class RangeParserTests: XCTestCase {
     }
     
     func testParseWithSingleValue() {
-        let parseResult = parser.parse(from: "1.12", to: SemanticVersion.self)
+        let parseResult = parser.parse(from: "=1.12", to: SemanticVersion.self)
         guard let range = parseResult.ok() else {
             XCTFail("\(parseResult.error()!)")
             return
@@ -56,27 +56,27 @@ class RangeParserTests: XCTestCase {
         
         XCTAssert(range.contains(SemanticVersion(from: "1.12")!))
         XCTAssert(range.contains(SemanticVersion(from: "1.12.0")!))
-        XCTAssert(range.contains(SemanticVersion(from: "1.12.0.1")!))
+        XCTAssertFalse(range.contains(SemanticVersion(from: "1.12.0.1")!))
         XCTAssertFalse(range.contains(SemanticVersion(from: "1.12.1")!))
         XCTAssertFalse(range.contains(SemanticVersion(from: "2")!))
     }
     
-    func testParseWithInvalidFormat() {
-        let parseResult = parser.parse(from: "+2.2", to: SemanticVersion.self)
+    func testParseWithInvalidRangeFormat() {
+        let parseResult = parser.parse(from: "<<2.2", to: SemanticVersion.self)
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
             return
         }
         
         switch error {
-        case .invalidFormat:
+        case .invalidRangeFormat:
             break
         default:
             XCTFail("Unexpected error returned")
         }
     }
     
-    func testParseWithInvalidFormat2() {
+    func testParseWithInvalidRangeFormat2() {
         let parseResult = parser.parse(from: "1.0<1.1<2.2", to: SemanticVersion.self)
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
@@ -84,14 +84,14 @@ class RangeParserTests: XCTestCase {
         }
         
         switch error {
-        case .invalidFormat:
+        case .invalidRangeFormat:
             break
         default:
             XCTFail("Unexpected error returned")
         }
     }
     
-    func testParseWithInvalidVersionFormat() {
+    func testParseWithInvalidValueFormat() {
         let parseResult = parser.parse(from: "1.1...<2.2", to: SemanticVersion.self)
         guard let error = parseResult.error() else {
             XCTFail("\(parseResult.ok()!)")
@@ -99,7 +99,7 @@ class RangeParserTests: XCTestCase {
         }
         
         switch error {
-        case .invalidVersionFormat:
+        case .invalidValueFormat:
             break
         default:
             XCTFail("Unexpected error returned")

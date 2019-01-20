@@ -11,7 +11,7 @@ import XCTest
 
 fileprivate struct Constants {
     static let testAppStoreUrl = "https://www.apple.com"
-    static let testVersion = "<1.1.12"
+    static let testVersion = "<=1.1.12"
     static let testInvalidVersion = "<1.1..12"
 }
 
@@ -19,10 +19,13 @@ class UpdateDetailTests: XCTestCase {
 
     func testIntializerShouldSucceed() {
         let entity = UpdateDetailJSONEntity(appStoreUrl: Constants.testAppStoreUrl, message: nil, title: nil, version: Constants.testVersion)
-        let updateDetail = try? UpdateDetail(from: entity)
+        guard let updateDetail = try? UpdateDetail(from: entity) else {
+            XCTFail("Unexpected nil")
+            return
+        }
         
-        let expectedRange = SemanticVersion(from: "0")!..<SemanticVersion(from: "1.1.12")!
-        XCTAssertEqual(updateDetail?.version, expectedRange)
+        let expectedRange = UppsalaRange(lhs: nil, rhs: SemanticVersion(from: "1.1.12")!, isContainingRightSide: true)
+        XCTAssertEqual(updateDetail.version, expectedRange)
     }
     
     func testIntializerShouldReturnNil() {

@@ -16,9 +16,9 @@ public class SemanticVersion: Comparable, CustomStringConvertible, RangeParsable
     // MARK: - Properties
     
     // (InheritDoc)
-    public static let prefixForPreprocess: String = "0"
+    static let prefixForPreprocess: String = "0"
     // (InheritDoc)
-    public static let suffixForPreprocess: String = ".1"
+    static let suffixForPreprocess: String = ".1"
     
     /// The array of split number.
     public var splitVersionNumber: [VersionDataType] = []
@@ -59,7 +59,7 @@ public class SemanticVersion: Comparable, CustomStringConvertible, RangeParsable
     
     // MARK: - Methods
     
-    public class func from(_ str: String) -> SemanticVersion? {
+    class func from(_ str: String) -> SemanticVersion? {
         return SemanticVersion(from: str)
     }
 
