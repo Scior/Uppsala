@@ -66,7 +66,6 @@
 		6BB210C422057A27007CE129 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		6BB210CC2205802F007CE129 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6BB210D12205832A007CE129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		6BB210D222058361007CE129 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6BB210D322058E37007CE129 /* DialogTextsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTextsTests.swift; sourceTree = "<group>"; };
 		6BD0F15621F475BB00519EB7 /* UppsalaRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppsalaRange.swift; sourceTree = "<group>"; };
 		6BD0F15821F4873200519EB7 /* RangeParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeParsable.swift; sourceTree = "<group>"; };
@@ -457,7 +456,6 @@
 			knownRegions = (
 				ja,
 				Base,
-				en,
 			);
 			mainGroup = 6BFF5EEA21DA1EB700F4FBBB;
 			productRefGroup = 6BFF5EF521DA1EB700F4FBBB /* Products */;
@@ -573,7 +571,6 @@
 			children = (
 				6BB210CC2205802F007CE129 /* ja */,
 				6BB210D12205832A007CE129 /* Base */,
-				6BB210D222058361007CE129 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
