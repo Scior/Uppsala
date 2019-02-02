@@ -15,6 +15,7 @@
 		6B8ABEF121E0D3FF00972E26 /* DialogTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8ABEF021E0D3FF00972E26 /* DialogTexts.swift */; };
 		6BB210C522057A27007CE129 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB210C422057A27007CE129 /* String+localized.swift */; };
 		6BB210C922057FC6007CE129 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BB210CB22057FC6007CE129 /* Localizable.strings */; };
+		6BB210D422058E37007CE129 /* DialogTextsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB210D322058E37007CE129 /* DialogTextsTests.swift */; };
 		6BD0F15721F475BB00519EB7 /* UppsalaRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD0F15621F475BB00519EB7 /* UppsalaRange.swift */; };
 		6BD0F15921F4873200519EB7 /* RangeParsable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD0F15821F4873200519EB7 /* RangeParsable.swift */; };
 		6BFF5EFE21DA1EB800F4FBBB /* Uppsala.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */; };
@@ -66,6 +67,7 @@
 		6BB210CC2205802F007CE129 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6BB210D12205832A007CE129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6BB210D222058361007CE129 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6BB210D322058E37007CE129 /* DialogTextsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTextsTests.swift; sourceTree = "<group>"; };
 		6BD0F15621F475BB00519EB7 /* UppsalaRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UppsalaRange.swift; sourceTree = "<group>"; };
 		6BD0F15821F4873200519EB7 /* RangeParsable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeParsable.swift; sourceTree = "<group>"; };
 		6BFF5EF421DA1EB700F4FBBB /* Uppsala.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Uppsala.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +132,7 @@
 		6B7C0FEB21E20EE400B0A6CD /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				6BB210D322058E37007CE129 /* DialogTextsTests.swift */,
 				6B7C0FF121E212AF00B0A6CD /* RangeParserTestsForDate.swift */,
 				6BFF5F9621DB80A500F4FBBB /* RangeParserTestsForSemanticVersion.swift */,
 			);
@@ -547,6 +550,7 @@
 				6BFF5F1121DA4D0900F4FBBB /* SemanticVersionTests.swift in Sources */,
 				6B7C0FF221E212AF00B0A6CD /* RangeParserTestsForDate.swift in Sources */,
 				6BFF5F6F21DB28DE00F4FBBB /* UppsalaTests.swift in Sources */,
+				6BB210D422058E37007CE129 /* DialogTextsTests.swift in Sources */,
 				6BFF5F2321DB186100F4FBBB /* EnvironmentTests.swift in Sources */,
 				6BFF5F9721DB80A500F4FBBB /* RangeParserTestsForSemanticVersion.swift in Sources */,
 				6B8ABEE821E094F000972E26 /* UpdateDetailTests.swift in Sources */,
