@@ -44,7 +44,7 @@ class AlertControllerFactoryTests: XCTestCase {
             XCTFail("Unexpected nil")
             return
         }
-        let controller = AlertControllerFactory.from(updateDetail: updateDetail)
+        let controller = AlertControllerFactory.buildWith(updateDetail: updateDetail)
         
         XCTAssertEqual(controller.actions.count, 2)
         

@@ -90,21 +90,23 @@ public final class AlertControllerFactory {
     }
     
     /**
-     Converts the entity class into the `UIAlertController`.
-     - TODO: Rename.
+     Builds `UIAlertController` with the entity class.
      
      - Parameters:
        - updateDetail: The entity class.
+       - actions: The actions to choice.
      
      - Returns: `UIAlertController` with the default actions and the completion handler.
      */
-    public class func from(updateDetail: UpdateDetail) -> UIAlertController {
+    public class func buildWith(updateDetail: UpdateDetail, actions: Set<AlertControllerFactory.DefaultAction>? = nil) -> UIAlertController {
         let factory = AlertControllerFactory(texts: DialogTexts(
             title: updateDetail.title,
             message: updateDetail.message
         ))
-        // TODO: 
-        factory.actions = [.close(title: "Close"), .openAppStore(title: "App Store", url: updateDetail.appStoreUrl)]
+        factory.actions = actions ?? [
+            .close(title: "Close"),
+            .openAppStore(title: "App Store", url: updateDetail.appStoreUrl)
+        ]
         
         return factory.build()
     }
