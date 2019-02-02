@@ -24,9 +24,20 @@ public struct DialogTexts {
        - message: The message of the dialog. `nil` will be replaced with the default text.
      */
     public init(title: String?, message: String?) {
-        // TODO: Localize
+        self.title = title ?? LocalizedStringKeys.notificationTitle.localized()
+        self.message = message ?? LocalizedStringKeys.notificationMessage.localized()
+    }
+}
+
+fileprivate extension DialogTexts {
+    /// Keys for fetching localized strings.
+    enum LocalizedStringKeys: String {
+        case notificationTitle = "update_notification_title"
+        case notificationMessage = "update_notification_message"
         
-        self.title = title ?? "Update Notification"
-        self.message = message ?? "The new version of this app is now available!"
+        /// Returns localized string.
+        func localized() -> String {
+            return self.rawValue.localized()
+        }
     }
 }

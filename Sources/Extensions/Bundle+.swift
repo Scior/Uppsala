@@ -7,6 +7,11 @@
 //
 
 extension Bundle {
+    /// The shorthand to access the `Bundle` for `Uppsala`.
+    static var uppsala: Bundle? {
+        return Bundle(identifier: "com.flyingalpaca.Uppsala")
+    }
+    
     /// The short version of app.
     var shortVersion: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
